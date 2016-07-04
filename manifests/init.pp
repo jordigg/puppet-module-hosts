@@ -122,7 +122,7 @@ class hosts (
 
   if $use_fqdn_real == true {
     if $::fqdn == 'localhost' {
-      $real_fqdn = "$::{hostname}.$::{domain}"
+      $real_fqdn = [$::hostname, $::domain].join(".")
     }else{
       $real_fqdn = $::fqdn
     }
